@@ -26,6 +26,10 @@ const actions = {
     toggleAll({todos}, completed) {
         todos.forEach(todo => todo.completed = completed)
         storage.set(todos)
+    },
+    destroy({todos}, index) {
+        todos.splice(index,1)
+        storage.set(todos)
     }
 }
 export default function reducer(state = init, action, args) {
